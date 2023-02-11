@@ -1,0 +1,125 @@
+
+/* <-------------search field----------------> */
+
+#pink{
+    margin-left: -75px;
+}
+.input-icons i {
+    position: absolute;
+    margin-right: -25%;
+   
+}
+
+.input-icons {
+    width: 100%;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    row-gap: 20px;
+    /* margin-left: -10%; */
+}
+
+.icon {
+    padding: 10px;
+    /* color: green; */
+    min-width: 50px;
+    text-align: center;
+}
+
+.input-field {
+    /* width: 320px;
+       height: 40px;
+       outline: none;
+       padding: 5px;
+       text-align: center; */
+    width: 70%;
+    padding: 10px;
+    outline: none;
+}
+
+.nav-item {
+    display: flex;
+    justify-content: center;
+    /* align-items: center;
+    text-align: center;
+    border: 1px solid black; */
+    /* font-size: large; */
+    /* width: 50%; */
+
+}
+
+.container-heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 50px;
+} */
+
+.line {
+    border-right: 2px solid gray;
+    width: 20px;
+    height: 30px;
+    padding: 10px;
+
+}
+.main-nav{
+    padding: 10px  !important;
+    background-color: aliceblue !important;
+}
+.right-side{
+    display: flex !important;
+    justify-content: space-around !important;
+    margin-right: -35px !important;
+}
+.right-side i{
+    display: flex !important;
+    margin-inline: 12px;
+}
+.right-side .down{
+   margin-top: -10px !important;
+   /* border: 1px solid black !important; */
+   width: 100% !important;
+   font-size: 16px !important;
+   margin-right: -22px !important;
+   /* color: rgb(248, 10, 101) !important; */
+}
+.right-side .down:hover{
+    color: rgb(248, 18, 160) !important;
+}
+.sec-nav{
+    display: flex !important;
+    justify-content: space-between !important;
+    padding-bottom: -10px !important;
+}
+.down-1{
+    color: black !important;
+    text-decoration: none;
+}
+.down-1:hover{
+     color: rgb(248, 18, 160) !important;
+}
+.sec-nav .down{
+    /* margin: 10px !important; 
+    */
+    /* border: 1px solid black !important; */
+    display: flex !important;
+    justify-content: space-between !important;
+     margin-right: 35px;
+   
+   
+}
+.sec-nav .down:hover{
+ color: rgb(248, 18, 160) !important;
+ border-bottom: 2px solid rgb(248, 18, 160) !important;
+ padding: 10px !important;
+}
+.navbar{
+        --bs-navbar-nav-link-padding-x: 15px;
+}
