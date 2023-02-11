@@ -1,0 +1,17 @@
+
+.cart{
+    padding: 20px;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 80px;
+}
+#size{
+    padding: 10px;
+}
+#size button{
+    padding: 10px;
+    color: rgb(241, 7, 144);
+    margin: 10px;
+}
