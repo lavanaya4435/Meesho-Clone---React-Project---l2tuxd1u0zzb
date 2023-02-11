@@ -1,6 +1,30 @@
 .footer{
-    border: 1px solid black;
+    border: 1px solid gray;
+    padding: 20px;
+    margin: 20px;
+
 }
-.pink{
-    color:palevioletred
+.pink, #pink{
+    color:rgb(238, 14, 126)
 }
+.image{
+    padding: 5%;
+}
+.nav-link:hover{
+color:red;
+/* background-color: rgb(243, 23, 188); */
+/* border-bottom: #fd23aa; */
+/* border-radius: 20px;
+background-color: yellow;
+    color: green; */
+}
+.buttons{
+    padding: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    /* margin: 20px; */
+}
+
+
