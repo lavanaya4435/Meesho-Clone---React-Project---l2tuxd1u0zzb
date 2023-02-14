@@ -14,7 +14,7 @@
 //   const [product, setProduct] = useState({});
 //   const [loading, setLoading] = useState(true);
 
-//   
+//
 
 
 //   const fetchData = async () => {
@@ -136,9 +136,97 @@
 
 // export default Product
 
+// import { useDispatch } from 'react-redux';
+// import { addCart } from '../redux/action';
+// import { NavLink } from 'react-router-dom';
+// import React, { useState, useEffect } from "react";
+// import axios from "axios";
+
+// const Product = ({ match }) => {
+//   const [product, setProduct] = useState({});
+//   const [loading, setLoading] = useState(true);
+//   const [error, setError] = useState(false);
+
+//   const dispatch = useDispatch();
+//   const addProduct = (product) => {
+//     dispatch(addCart(product));
+//   }
+
+
+//   useEffect(() => {
+//     const fetchData = async () => {
+//       try {
+//         const response = await axios.get(
+//           `https://content.newtonschool.co/v1/pr/63b6c911af4f30335b4b3b89/products/${match.params.id}`
+//         );
+//         setProduct(response.data);
+//         setLoading(false);
+//       } catch (err) {
+//         setError(true);
+//         setLoading(false);
+//       }
+//     };
+//     fetchData();
+//   }, [match.params.id]);
+
+//   if (loading) {
+//     return <p>Loading...</p>;
+//   }
+
+//   if (error) {
+//     return <p>Something went wrong...</p>;
+//   }
+
+//   const ShowProduct = () => {
+//     if (!product) {
+//     return <p>Product not found</p>;
+//   }
+//     return (
+//       <>
+//         <div className="col-md-6">
+//           <img src={product.image} alt={product.title} height="400px" width="400px" />
+        
+//         </div>
+//         <div className="col-md-6">
+//           <h4 className="text-uppercase text-black-50">
+//             {product.category}
+//           </h4>
+//           <h1 className='display-5'>{product.title}</h1>
+//           <p className="lead fw-bolder">
+//             Rating {product.rating && product.rating.rate}
+//             <i className="fa fa-star"></i>
+//           </p>
+//           <h3 className="display-6 fw-bold my-4">
+//             ${product.price}
+//           </h3>
+//           <p className="lead">{product.description}</p>
+//           <button className="btn btn-outline-dark"
+//             onClick={() => addProduct(product)}
+//           >Add to cart</button>
+//           <NavLink to='/cart' className="btn btn-dark ms-2 px-3 py-2">Go to cart</NavLink>
+//        </div>
+//       </>
+//     )
+//   }
+//   return (
+//     <div>
+//       <div className="container py-5">
+//         <div className="row py-5">
+//           {<ShowProduct/>}
+//        </div>
+//       </div>
+//     </div>
+//   )
+// }
+
+// export default Product;
+
+
+
 import { useDispatch } from 'react-redux';
 import { addCart } from '../redux/action';
-import { NavLink } from 'react-router-dom';
+import { NavLink,useParams } from 'react-router-dom';
+
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -146,18 +234,20 @@ const Product = ({ match }) => {
   const [product, setProduct] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-
+  const  {id}= useParams();
+  // console.log(params);
   const dispatch = useDispatch();
   const addProduct = (product) => {
     dispatch(addCart(product));
   }
 
-
   useEffect(() => {
+    // if (!match || !match.params) return;
+
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://content.newtonschool.co/v1/pr/63b6c911af4f30335b4b3b89/products/${match.params.id}`
+          `https://content.newtonschool.co/v1/pr/63b6c911af4f30335b4b3b89/products/${id}`
         );
         setProduct(response.data);
         setLoading(false);
@@ -167,7 +257,7 @@ const Product = ({ match }) => {
       }
     };
     fetchData();
-  }, [match.params.id]);
+  }, [match]);
 
   if (loading) {
     return <p>Loading...</p>;
@@ -179,13 +269,15 @@ const Product = ({ match }) => {
 
   const ShowProduct = () => {
     if (!product) {
-    return <p>Product not found</p>;
-  }
+      return <p>Product not found</p>;
+    }
+
     return (
       <>
         <div className="col-md-6">
           <img src={product.image} alt={product.title} height="400px" width="400px" />
-        
+          
+
         </div>
         <div className="col-md-6">
           <h4 className="text-uppercase text-black-50">
@@ -204,19 +296,20 @@ const Product = ({ match }) => {
             onClick={() => addProduct(product)}
           >Add to cart</button>
           <NavLink to='/cart' className="btn btn-dark ms-2 px-3 py-2">Go to cart</NavLink>
-       </div>
+        </div>
       </>
-    )
-  }
+    );
+  };
+
   return (
     <div>
       <div className="container py-5">
         <div className="row py-5">
-          {<ShowProduct/>}
-       </div>
+          {<ShowProduct />}
+        </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Product;
