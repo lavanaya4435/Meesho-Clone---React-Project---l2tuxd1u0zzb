@@ -1,54 +1,28 @@
-// import React from 'react'
+import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import React, { useState, useEffect } from 'react'
-import axios from 'axios';
+
+
 import './Navbar.css';
 <link rel="stylesheet"
   href=
-  "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>;
+  "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
 
 
 
 
 const Navbar = () => {
   const state = useSelector((state) => state.handleCart);
-  //  const navigate = useNavigate();
-  const [data, setData] = useState([]);
-  const [filter, setFilter] = useState([data]);
-  const [loading, setLoading] = useState(false);
-  // let componentMounted = true;
-
-  const fetchData = async () => {
-    setLoading(true);
-    const response = await axios.get("https://fakestoreapi.com/products");
-
-    console.log(response)
-    setData(await response.data);
-    setFilter(await response.data);
-    console.log(filter);
-    console.log(data)
-    setLoading(false);
-
-
-  };
-  useEffect(() => {
-    fetchData();
-
-    // eslint-disable-next-line 
-  }, []);
-
-  const filterProduct = (category) => {
-    const updatedList = data.filter((x) => x.category === category);
-    setFilter(updatedList);
-  }
+  
 
   return (
     <>
+      
       {/* <div className='navbar'> */}
       <nav className="navbar navbar-expand-lg navbar-light bg-light bg-red py-3 shadow-sm main-nav">
         <div className="container container-heading" id='top'>
-          <NavLink className="navbar-brand fw-bold fs-4" to="/Home" id='pink'>
+          <NavLink className="navbar-brand fw-bold fs-4"  id='pink' to="/">
+
             <svg
             id="logo"
             viewBox="0 0 87 20"
@@ -98,11 +72,11 @@ const Navbar = () => {
 {/* 
                   DowloadApp
                 </NavLink> */}
-                <NavLink class="down-1"
-                  target="_blank"
+                <a class="down-1"
+                  // target="_blank"
                   href="https://play.google.com/store/apps/details?id=com.meesho.supply&pid=pow_website&c=pow"
-                  rel="noreferrer"
-                > DowloadApp</NavLink>
+                  // rel="noreferrer"
+                > DowloadApp</a>
                 <p className='line'></p>
               </li>
 
@@ -154,7 +128,7 @@ const Navbar = () => {
             <ul className="navbar-nav mx-auto">
               <li className="nav-item">
                 <a className="nav-link down" >
-                  <div onClick={() => filterProduct("women's clothing")}>WomenEthnic</div>
+                  <div >WomenEthnic</div>
 </a>
               </li>
               <li className="nav-item active">
@@ -173,7 +147,7 @@ const Navbar = () => {
                 <a className="nav-link down" >Beauty&Health</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link down" ><div onClick={() => filterProduct("jewelery")}>Jewellary &Accessories</div></a>
+                <a className="nav-link down" ><div >Jewellary &Accessories</div></a>
               </li>
               <li className="nav-item">
                 <a className="nav-link down" >bags & footwear</a>
